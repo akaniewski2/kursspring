@@ -11,17 +11,26 @@ import javax.annotation.PreDestroy;
 @Component
 @PropertySource("classpath:castle.properties") // wartosci z nowego pliku properties
 public class Castle {
+// wstrzykiwanie do pola obiektu przez reflection ipi 'ajpiaj'
+//    @Autowired
+//    Knight knight;
 
-    @Autowired
     Knight knight;
+
+
 
     //@Value("East Watch")
    // @Value("${my.castle.name}")
     @Value("${my.castle.name:Black Castle}") // z wartoscia domyslna
     private String name ;//= "East Watch";
 
-    public Castle() {
+    // wstrzykiwanie poprzez kostruktor
+    @Autowired
+    public Castle(Knight knight) {
+        this.knight = knight;
     }
+
+    //
 
     @PostConstruct
     public void build(){

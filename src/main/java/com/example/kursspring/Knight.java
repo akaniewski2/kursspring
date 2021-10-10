@@ -1,6 +1,7 @@
 package com.example.kursspring;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,7 @@ public class Knight {
     private String name;
     @Value("23")
     private int age;
+
 //    private  Quest quest;
 
 //    public Knight(String name, int age, Quest quest) {
@@ -27,6 +29,13 @@ public class Knight {
 //    public void  setQuest (Quest quest) {
 //        this.quest=quest;
 //    }
+
+    // jesli chcemy wstrzykiwac przez metode
+    private Quest quest;
+    @Autowired
+        public void  setQuest (Quest quest) {
+        this.quest=quest;
+    }
 
 
     public Knight() {
