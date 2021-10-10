@@ -23,7 +23,7 @@ public class Knight {
 
    @Override
     public String toString() {
-        return "sKnight{" +
+        return "Knight{" +
                 "name='" + name + '\'' +
                 ", age=" + age + ", quest=" + quest +
                 '}';
