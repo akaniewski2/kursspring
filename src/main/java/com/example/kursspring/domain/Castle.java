@@ -1,4 +1,4 @@
-package com.example.kursspring;
+package com.example.kursspring.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,37 +8,55 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
-@PropertySource("classpath:castle.properties") // wartosci z nowego pliku properties
+//@Component //po wykomentowaniu tego, ne dziala anotacja propertysource
+//@PropertySource("classpath:castle.properties") // wartosci z nowego pliku properties
 public class Castle {
 // wstrzykiwanie do pola obiektu przez reflection ipi 'ajpiaj'
-//    @Autowired
-//    Knight knight;
-
+  //  @Autowired
     Knight knight;
+
+   // Knight knight;
 
 
 
     //@Value("East Watch")
    // @Value("${my.castle.name}")
-    @Value("${my.castle.name:Black Castle}") // z wartoscia domyslna
+
+   // @Value("${my.castle.name:Black Castle}") // z wartoscia domyslna
+
     private String name ;//= "East Watch";
 
+     public Castle(String name) {
+        this.name = name;
+    }
+
+    public Castle() {
+    }
+
     // wstrzykiwanie poprzez kostruktor
-    @Autowired
+//    @Autowired
     public Castle(Knight knight) {
         this.knight = knight;
     }
 
+    public Castle(Knight knight,String name) {
+        this.knight = knight;
+        this.name = name;
+    }
+
+    public void setName(String name) {
+         this.name=name;
+    }
+
     //
 
-    @PostConstruct
+  //  @PostConstruct
     public void build(){
         System.out.println("Wybudowano zamek "+ name + " zamieszkaly przez rycerza "+knight);
     }
 
-   @PreDestroy
-    public void tearaDown(){
+ //  @PreDestroy
+    public void tearDown(){
         System.out.println("Zaraz wyburzymy zamek "+ name + " zamieszkaly przez rycerza "+knight );
     }
 }

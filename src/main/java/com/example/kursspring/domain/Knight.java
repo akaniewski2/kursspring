@@ -1,24 +1,30 @@
-package com.example.kursspring;
+package com.example.kursspring.domain;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Knight {
 
-    @Value("lance")
+   // @Value("lance")
     private String name;
-    @Value("23")
+  //  @Value("23")
     private int age;
 
-//    private  Quest quest;
+   private  Quest quest;
 
-//    public Knight(String name, int age, Quest quest) {
+    public Knight(String name, int age, Quest quest) {
+        this.name = name;
+        this.age = age;
+        this.quest = quest;
+    }
+
+//    public Knight(String name, int age ) {
 //        this.name = name;
 //        this.age = age;
-//        this.quest = quest;
+//
 //    }
 
 //    public Knight(String name, int age) {
@@ -31,8 +37,8 @@ public class Knight {
 //    }
 
     // jesli chcemy wstrzykiwac przez metode
-    private Quest quest;
-    @Autowired
+//    private Quest quest;
+       // @Autowired
         public void  setQuest (Quest quest) {
         this.quest=quest;
     }
@@ -45,7 +51,7 @@ public class Knight {
     public String toString() {
         return "Knight{" +
                 "name='" + name + '\'' +
-                ", age=" + age + ", quest=" + //quest +
+                ", age=" + age + ", quest=" + quest +
                 '}';
     }
 }
