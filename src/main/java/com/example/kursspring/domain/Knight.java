@@ -21,11 +21,11 @@ public class Knight {
         this.quest = quest;
     }
 
-//    public Knight(String name, int age ) {
-//        this.name = name;
-//        this.age = age;
-//
-//    }
+    public Knight(String name, int age ) {
+        this.name = name;
+        this.age = age;
+
+    }
 
 //    public Knight(String name, int age) {
 //        this.name = name;

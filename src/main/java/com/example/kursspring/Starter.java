@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Starter implements CommandLineRunner {
 
-    @Autowired
-    Castle castle;
+   @Autowired
+   Castle castle;
+
+
 
     @Override
     public void run(String... args) throws Exception {

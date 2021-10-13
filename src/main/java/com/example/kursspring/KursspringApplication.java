@@ -6,9 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 
-//@ComponentScan({"com.example.kursspring","com.example.component"})
+@ComponentScan({"com.example.kursspring","com.example.component","com.example.config"})
 @SpringBootApplication
-@ImportResource( "classpath:config/spring-config.xml")
+//@ImportResource( "classpath:config/spring-config.xml")
 public class KursspringApplication {
 
 	public static void main(String[] args) {

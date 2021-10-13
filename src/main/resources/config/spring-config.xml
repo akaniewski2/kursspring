@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-           http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+           <!--http://www.springframework.org/schema/beans/spring-beans-3.0.xsd-->
+    <!--http://www.springframework.org/schema/context-->
+    <!--http://www.springframework.org/schema/context/spring-context-3.0.xsd">-->
 
-    <context:component-scan base-package="org.example"/>
+    <!--<context:component-scan base-package="org.example"/>-->
 
-    <import resource="classpath:config/castle-config.xml"/>
+    <!--<import resource="classpath:config/spring-config.xml"/>-->
 
-    <!--<bean id="questId" class="com.example.kursspring.domain.Quest"/>bez param-->
-    <bean id="questId" class="com.example.kursspring.domain.Quest">
-        <constructor-arg name="description" value="uratuj SMOKA"/>
-    </bean>
-    <bean id="knightId" class="com.example.kursspring.domain.Knight">
-        <constructor-arg index="0" value="lana"/>
-        <constructor-arg name="age" value="27"/>
-        <constructor-arg name="quest" ref="questId"/>
-    </bean>
-    <!--<bean id="castletId" class="com.example.kursspring.domain.Castle"/>-->
+    <!--&lt;!&ndash;<bean id="questId" class="com.example.kursspring.domain.Quest"/>bez param&ndash;&gt;-->
+    <!--<bean id="questid" class="com.example.kursspring.domain.Quest">-->
+        <!--<constructor-arg name="description" value="uratuj SMOKA"/>-->
+    <!--</bean>-->
+    <!--<bean id="knightid" class="com.example.kursspring.domain.Knight">-->
+        <!--<constructor-arg index="0" value="lana"/>-->
+        <!--<constructor-arg name="age" value="27"/>-->
+        <!--<constructor-arg name="quest" ref="questid"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;<bean id="castletId" class="com.example.kursspring.domain.Castle"/>&ndash;&gt;-->
 
 
-</beans>
+<!--</beans>-->
 
