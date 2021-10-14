@@ -3,14 +3,16 @@ package com.example.kursspring.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
+@Scope("prototype") // jesli inny bean ma zaleznosc od rycerza, wstrzykiwana jest tam nowa instancja od poczatkowego rycerza
 public class Knight {
 
-   // @Value("lance")
+   @Value("lance")
     private String name;
-  //  @Value("23")
+    @Value("23")
     private int age;
 
    private  Quest quest;
@@ -38,13 +40,23 @@ public class Knight {
 
     // jesli chcemy wstrzykiwac przez metode
 //    private Quest quest;
-       // @Autowired
+       @Autowired
         public void  setQuest (Quest quest) {
+           System.out.println("Ustawiam zadanie dla rycerza.");
         this.quest=quest;
     }
 
 
     public Knight() {
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override

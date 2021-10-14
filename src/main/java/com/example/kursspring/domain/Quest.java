@@ -3,7 +3,7 @@ package com.example.kursspring.domain;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-//@Component // jesli chcemy wstrzykiwac przez metode
+@Component // jesli chcemy wstrzykiwac przez metode
 public class Quest {
 
     private String description;
