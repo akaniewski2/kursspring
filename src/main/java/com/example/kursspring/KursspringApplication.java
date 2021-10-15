@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 
 
-//@ComponentScan({"com.example.kursspring","com.example.component","com.example.config"})
+@ComponentScan({"com.example.kursspring","com.example.component","com.example.config"})
 @SpringBootApplication
 //@ImportResource( "classpath:config/spring-config.xml")
 

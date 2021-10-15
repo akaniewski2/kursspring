@@ -1,6 +1,7 @@
 package com.example.kursspring.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,6 @@ public class Castle {
 // @Value("${my.castle.name}")
 @Value("${my.castle.name:Black Castle}") // z wartoscia domyslna
 private String name ;//= "East Watch";
-
 
     Knight knight;
 
@@ -35,14 +35,13 @@ private String name ;//= "East Watch";
 
     // wstrzykiwanie poprzez kostruktor
     @Autowired
-    public Castle(Knight knight) {
-        this.knight = knight;
-    }
+    public Castle(@Qualifier(value="lancelot") Knight knight) { this.knight = knight;  }
+//    public Castle(Knight knight) { this.knight = knight;  }
 
-    public Castle(Knight knight,String name) {
-        this.knight = knight;
-        this.name = name;
-    }
+//    public Castle(Knight knight,String name) {
+//        this.knight = knight;
+//        this.name = name;
+//    }
 
     public void setName(String name) {
          this.name=name;

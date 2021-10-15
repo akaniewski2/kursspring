@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype") // jesli inny bean ma zaleznosc od rycerza, wstrzykiwana jest tam nowa instancja od poczatkowego rycerza
+//@Component
+//@Scope("prototype") // jesli inny bean ma zaleznosc od rycerza, wstrzykiwana jest tam nowa instancja od poczatkowego rycerza
 public class Knight {
 
-   @Value("lance")
+  // @Value("lance")
     private String name;
     @Value("23")
     private int age;

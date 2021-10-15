@@ -3,6 +3,7 @@ package com.example.config;
 import com.example.kursspring.domain.Castle;
 import com.example.kursspring.domain.Knight;
 import com.example.kursspring.domain.Quest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
@@ -14,11 +15,29 @@ public class MainConfig {
 //    @Value("${my.castle.name:Yellow Castle}")
 //    String name;
 
-//    @Bean
-//    public Quest createQuest () {
-//
-//        return new Quest();
-//    }
+    @Bean
+    public Quest createQuest () {
+
+        return new Quest();
+    }
+        @Autowired
+        Quest quest;
+// dwa beany rycerza
+    @Bean(name="lancelot")
+    @Primary //przy tej notacji mozna usunac @Qualifier'y
+    public Knight lancelot(){ // createKnight - zla nazwa, bo pod nia tworzony jest bean, a ma byc knight
+        Knight lancelot=new Knight("Lancelot",26);
+        lancelot.setQuest(createQuest());
+        return lancelot;
+    }
+
+    @Bean(name="percival")
+    public Knight createKnightBean(){ // createKnight - zla nazwa, bo pod nia tworzony jest bean, a ma byc knight
+        Knight percival=new Knight("Percival",26);
+        percival.setQuest(createQuest());
+        return percival;
+    }
+
 //
 //    @Bean
 //    @Scope("prototype")

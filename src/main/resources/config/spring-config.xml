@@ -15,12 +15,26 @@
     <bean id="questid" class="com.example.kursspring.domain.Quest">
         <constructor-arg name="description" value="uratuj SMOKA"/>
     </bean>
-    <bean id="knightid" class="com.example.kursspring.domain.Knight" scope="prototype">
 
-        <constructor-arg index="0" value="lana"/>
+    <bean id="percival" class="com.example.kursspring.domain.Knight" scope="prototype" primary="true">
+
+        <constructor-arg index="0" value="percival_xml"/>
         <constructor-arg name="age" value="27"/>
         <constructor-arg name="quest" ref="questid"/>
     </bean>
+    <bean id="lancelot" class="com.example.kursspring.domain.Knight" scope="prototype">
+
+        <constructor-arg index="0" value="lancelot_xml"/>
+        <constructor-arg name="age" value="27"/>
+        <constructor-arg name="quest" ref="questid"/>
+    </bean>
+
+    <!--<bean id="knightid" class="com.example.kursspring.domain.Knight" scope="prototype">-->
+
+        <!--<constructor-arg index="0" value="lana"/>-->
+        <!--<constructor-arg name="age" value="27"/>-->
+        <!--<constructor-arg name="quest" ref="questid"/>-->
+    <!--</bean>-->
     <!--<bean id="castletId" class="com.example.kursspring.domain.Castle"/>-->
 
 

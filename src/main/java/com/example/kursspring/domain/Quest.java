@@ -1,9 +1,11 @@
 package com.example.kursspring.domain;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component // jesli chcemy wstrzykiwac przez metode
+@Scope("prototype")
 public class Quest {
 
     private String description;
