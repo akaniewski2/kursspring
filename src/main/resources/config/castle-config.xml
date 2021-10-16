@@ -16,6 +16,26 @@
         <!--<property name="name" value="${my.castle.name:Yellow Castle}"/>-->
 
     </bean>
+
+    <bean id="tournamentId" class="com.example.kursspring.domain.Tournament" >
+<!--        <property name="knight" ref="percival"/>-->
+        <property name="knights">
+
+            <map>
+               <entry key="lancelot" value-ref="lancelot"/>
+               <entry key="percival" value-ref="percival"/>
+            </map>
+
+<!--            <set/list-->
+<!--                <ref bean="percival"/>-->
+<!--                <ref bean="lancelot"/>-->
+<!--            </set>-->
+
+        </property>
+
+    </bean>
+
+
 </beans>
 
 
