@@ -35,7 +35,7 @@
         <!--<constructor-arg name="age" value="27"/>-->
         <!--<constructor-arg name="quest" ref="questid"/>-->
     <!--</bean>-->
-    <!--<bean id="castletId" class="com.example.kursspring.domain.Castle"/>-->
+    <!--<bean id="castletId" class="com.example.kursspring.domain.knightRepositoryRepository"/>-->
 
 
 </beans>

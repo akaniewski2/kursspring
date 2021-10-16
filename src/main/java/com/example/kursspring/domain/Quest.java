@@ -1,11 +1,7 @@
 package com.example.kursspring.domain;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-@Component // jesli chcemy wstrzykiwac przez metode
-@Scope("prototype")
+
 public class Quest {
 
     private String description;
@@ -24,7 +20,7 @@ public class Quest {
 //    }
 
     public Quest() {
-        this.description = "uratuj ksiezniczke";
+        this.description = description;
     }
 
     @Override
@@ -33,4 +29,6 @@ public class Quest {
                 "description='" + description + '\'' +
                 '}';
     }
+
+
 }

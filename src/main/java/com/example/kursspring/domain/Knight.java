@@ -40,7 +40,7 @@ public class Knight {
 
     // jesli chcemy wstrzykiwac przez metode
 //    private Quest quest;
-       @Autowired
+      // @Autowired
         public void  setQuest (Quest quest) {
            System.out.println("Ustawiam zadanie dla rycerza.");
         this.quest=quest;
