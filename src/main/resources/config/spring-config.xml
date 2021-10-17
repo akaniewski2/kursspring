@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans  xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+
+http://www.springframework.org/schema/task/spring-task-3.0.xsd ">
+
 
     <context:component-scan base-package="org.example"/>
 
@@ -15,6 +20,8 @@
     <bean id="questid" class="com.example.kursspring.domain.Quest">
         <constructor-arg name="description" value="uratuj SMOKA"/>
     </bean>
+
+<!--    <bean id="KnightRepositoryId" class="com.example.kursspring.domain.repository.KnightRepository" />-->
 
     <bean id="percival" class="com.example.kursspring.domain.Knight" scope="prototype" primary="true">
 
@@ -29,11 +36,17 @@
         <constructor-arg name="quest" ref="questid"/>
     </bean>
 
+    <task:scheduler id="createQuestScheduler" pool-size="10"/>
+    <task:scheduled-tasks>
+        <task:scheduled ref="QuestRepository" method="createRandomQuest" fixed-rate="1000"/>
+    </task:scheduled-tasks>
+
+
     <!--<bean id="knightid" class="com.example.kursspring.domain.Knight" scope="prototype">-->
 
-        <!--<constructor-arg index="0" value="lana"/>-->
-        <!--<constructor-arg name="age" value="27"/>-->
-        <!--<constructor-arg name="quest" ref="questid"/>-->
+    <!--<constructor-arg index="0" value="lana"/>-->
+    <!--<constructor-arg name="age" value="27"/>-->
+    <!--<constructor-arg name="quest" ref="questid"/>-->
     <!--</bean>-->
     <!--<bean id="castletId" class="com.example.kursspring.domain.knightRepositoryRepository"/>-->
 

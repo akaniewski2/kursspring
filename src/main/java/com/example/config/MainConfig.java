@@ -1,11 +1,32 @@
 package com.example.config;
 
+import com.example.kursspring.domain.repository.DBKnightRepository;
+import com.example.kursspring.domain.repository.InMemoryKnightRepository;
+import com.example.kursspring.domain.repository.KnightRepository;
 import org.springframework.context.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @Configuration
 //@ImportResource("classpath:config/castle-config.xml")
-//@PropertySource("classpath:KnightRepository.properties")
+//@PropertySource("classpath:InMemoryKnightRepository.properties")
 public class MainConfig {
+
+    @Bean(name="inMemoryKnigthRepository")
+//    @Primary
+    @Profile("dev")
+    public KnightRepository createInMemoryRepo() {
+        KnightRepository repo = new InMemoryKnightRepository();
+        return  repo;
+    }
+
+
+    @Bean(name="dbKnigthRepository")
+    @Profile("prod")
+    public KnightRepository createDbKnigthRepository() {
+        KnightRepository repo = new DBKnightRepository();
+        return  repo;
+    }
+
 
 
 
@@ -13,7 +34,7 @@ public class MainConfig {
 
 }
 
-//    @Value("${my.castle.name:Yellow KnightRepository}")
+//    @Value("${my.castle.name:Yellow InMemoryKnightRepository}")
 //    String name;
 //
 //    @Bean
@@ -49,9 +70,9 @@ public class MainConfig {
 //    }
 //
 //    @Bean(name="zamek" ,initMethod = "build",destroyMethod = "tearDown")
-//    @Value("${my.castle.name:Yellow KnightRepository}")
-//    public KnightRepository cqstle(String name){
-//        KnightRepository castle=new KnightRepository(knight());
+//    @Value("${my.castle.name:Yellow InMemoryKnightRepository}")
+//    public InMemoryKnightRepository cqstle(String name){
+//        InMemoryKnightRepository castle=new InMemoryKnightRepository(knight());
 //        castle.setName(name);
 //        return castle;
 //    }
