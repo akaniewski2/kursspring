@@ -1,5 +1,6 @@
 package com.example.kursspring;
 
+import com.example.kursspring.controllers.HelloController;
 import com.example.kursspring.domain.repository.KnightRepository;
 import com.example.kursspring.domain.repository.QuestRepository;
 import com.example.kursspring.services.QuestService;
@@ -20,6 +21,9 @@ public class Starter implements CommandLineRunner {
 
    @Autowired
    QuestService questService;
+
+//   @Autowired
+//   HelloController helloController;
 
     @Override
     public void run(String... args) throws Exception {
