@@ -4,6 +4,7 @@ import com.example.kursspring.domain.repository.KnightRepository;
 import com.example.kursspring.domain.repository.QuestRepository;
 import com.example.kursspring.services.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,8 @@ public class Starter implements CommandLineRunner {
 
     //! aby zobaczyc efekt nalezy w void run dac sout
    @Autowired
-   KnightRepository knightRepository;
+   //@Qualifier("inMemoryKnigthRepository")
+    KnightRepository knightRepository;
    @Autowired
    QuestRepository questRepository;
 
@@ -25,11 +27,18 @@ public class Starter implements CommandLineRunner {
 
 ;
 
-        questService.assignRandomQuest("Lancelot");
-        questService.assignRandomQuest("Percival");
+//        questService.assignRandomQuest("Lancelot");
+//        questService.assignRandomQuest("Percival");
 
         System.out.println(knightRepository);
         System.out.println(questRepository);
+
+        questRepository.createRandomQuest();
+       // System.out.println(questRepository);
+        questRepository.createRandomQuest();
+       // System.out.println(questRepository);
+        questRepository.createRandomQuest();
+       // System.out.println(questRepository);
 
 
         System.out.println("Koniec CommandLineRunner");
