@@ -1,11 +1,11 @@
 package com.example.kursspring.domain.repository;
 
 import com.example.kursspring.domain.Knight;
-import org.springframework.stereotype.Repository;
 
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
+import java.util.Optional;
 
 //@Repository
 public class DBKnightRepository implements KnightRepository{
@@ -28,19 +28,17 @@ public class DBKnightRepository implements KnightRepository{
     }
 
     @Override
-    public Knight getKnight(String name){
+    public Optional<Knight> getKnight(String name){
         System.out.println("uzywam bazy danych");
 //        throw new UnsupportedOperationException();
         return null;
     }
 
     @Override
-    public void deleteKnight(String name) {
-        System.out.println("uzywam bazy danych");
-
-//        throw new UnsupportedOperationException();
+    public void deleteKnight(Integer id) {
 
     }
+
 
     @Override
     @PostConstruct
@@ -50,6 +48,13 @@ public class DBKnightRepository implements KnightRepository{
 
 
     }
+
+    @Override
+    public Knight getKnightById(Integer id) {
+        return null;
+    }
+
+
 
     @Override
     public void createKnight(Knight knight) {

@@ -31,4 +31,7 @@ public class KnightService {
     }
 
 
+    public Knight getKnight(Integer id) {
+        return knightRepository.getKnightById(id);
+    }
 }

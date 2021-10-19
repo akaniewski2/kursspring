@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,9 @@ public class KnightController {
 
     @Autowired
     KnightService knightService;
+
+
+
 
 
     @RequestMapping("/knights")
@@ -40,6 +44,7 @@ public class KnightController {
         return "form_newknight";
 
     }
+
     //2. tu nastepuje zapisanie rycerza z formularza
     @RequestMapping(value="/knightFromForm",method = RequestMethod.POST)
     //metoda post przyjmuje nie model a obiekt ,clase
@@ -48,6 +53,17 @@ public class KnightController {
         knightService.saveKnight(knight);
         //przy redirect wskazujemy rwniez na url z RequestMapping a nie nazwe formularza !
         return "redirect:/knights";
+
+        // tak nie dziala
+       // return "form_knights";
+
+    }
+
+    @RequestMapping("/knight")
+    public String getKnight(@RequestParam("id") Integer id,  Model model){
+       Knight knight = knightService.getKnight(id);
+       model.addAttribute("knight",knight);
+       return "form_knight_info";
     }
 
 }

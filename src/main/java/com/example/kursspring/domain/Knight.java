@@ -10,10 +10,26 @@ import org.springframework.stereotype.Component;
 //@Scope("prototype") // jesli inny bean ma zaleznosc od rycerza, wstrzykiwana jest tam nowa instancja od poczatkowego rycerza
 public class Knight {
 
-  // @Value("lance")
+    private int id;
+    // @Value("lance")
     private String name;
     @Value("23")
     private int age;
+    private  int level;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Quest getQuest() {
+        return quest;
+    }
+
+
 
    private  Quest quest;
 
@@ -23,9 +39,18 @@ public class Knight {
         this.quest = quest;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public Knight(String name, int age ) {
         this.name = name;
         this.age = age;
+        this.level=1;
 
     }
 

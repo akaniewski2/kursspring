@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+
+    <title>szablont</title>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/jquery/3.2.1/css/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+        <tr><td>Imie</td><td>nazwa</td><td>wiek</td><td>level</td></tr>
+<!--        <tbody>-->
+        <tbody th:each="knight : ${allKnights}">-->
+        <tr>
+            <td th:text="${knight.id}" ></td>
+            <td th:text="${knight.name}" ></td>
+            <td th:text="${knight.age}" ></td>
+            <td th:text="${knight.level}" ></td>
+            <td> </td>
+        </tr>
+        </tbody>
+        </thead>
+    </table>
+
+</div>
+
+</body>
+</html>
