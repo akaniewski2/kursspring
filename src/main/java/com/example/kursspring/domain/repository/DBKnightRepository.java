@@ -50,4 +50,9 @@ public class DBKnightRepository implements KnightRepository{
 
 
     }
+
+    @Override
+    public void createKnight(Knight knight) {
+        //implementacja metody
+    }
 }

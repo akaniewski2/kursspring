@@ -4,10 +4,13 @@ import com.example.kursspring.domain.Knight;
 
 import com.example.kursspring.services.KnightService;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +30,24 @@ public class KnightController {
         model.addAttribute("allKnights",allKnights);
         model.addAttribute("hello","Witaj świecie");
 
-        return "knights";
+        return "form_knights";
     }
+
+    //1. tu nastepuje przekazanie danych z formularza form_newknight do modelu i utworzenie pustego obiektu ryceeza , który zostanie zapisamy w pkt 2 po wykonaniu metody post na url /knightFromForm"
+    @RequestMapping("/newknight")
+    public String createKnight(Model model){
+        model.addAttribute("newKnightFromForm",new Knight());
+        return "form_newknight";
+
+    }
+    //2. tu nastepuje zapisanie rycerza z formularza
+    @RequestMapping(value="/knightFromForm",method = RequestMethod.POST)
+    //metoda post przyjmuje nie model a obiekt ,clase
+    //tu mozna wstawic walidacje
+    public String saveKnights(Knight knight){
+        knightService.saveKnight(knight);
+        //przy redirect wskazujemy rwniez na url z RequestMapping a nie nazwe formularza !
+        return "redirect:/knights";
+    }
+
 }

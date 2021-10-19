@@ -18,11 +18,16 @@
 
     <!--<h1>Rycerze</h1>-->
     <!--<p th:text="${hello}" />-->
-    <p  th:text="${allKnights}"  />
+<!--    <p  th:text="${allKnights}"  />-->
 
 
-    <div th:each="knight : ${allKnights}">
-        <p th:text="${knight.name}" />
+<!--    <div th:each="knight : ${allKnights}">-->
+<!--        <p th:text="${knight.name}" />-->
+<!--    </div>-->
+<!--    -->
+    <div class="row" style="padding:10px">
+<!--        !!!!!!!!!!!!! tu podajemy nazwe url /newknight z controllera , nie natomiast nazwe pliku formularza !!!!!!!-->
+        <a href="/newknight">Utwórz rycerza</a>
     </div>
 
     <table class="table">

@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 import java.util.Collection;
 
 public interface KnightRepository {
+    
     void createKnight(String name, int age);
 
     Collection<Knight> getAllKnights();
@@ -18,4 +19,7 @@ public interface KnightRepository {
     void build();
 
 
+
+
+    void createKnight(Knight knight);
 }
