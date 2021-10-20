@@ -47,7 +47,8 @@ public class QuestRepository {
 //    @Scheduled(fixedDelay = 1000) // liczona od momentu zakonczenia calej metody
    // @Scheduled(fixedDelay = 1000,initialDelay = 3000) // liczona od momentu zakonczenia calej metody + opoznienie initialDelay
     //@Scheduled(fixedRate = 1000) // liczona od momentu uruchomienia metody
-    @Scheduled(fixedDelayString = "${questCreationDelay}") // z config
+
+   // @Scheduled(fixedDelayString = "${questCreationDelay}") // z config
     //dal xmla jest jakis blad
     public void createRandomQuest(){
         System.out.println("# Start createRandomQuest()");

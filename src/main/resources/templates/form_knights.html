@@ -25,19 +25,26 @@
 <!--        <p th:text="${knight.name}" />-->
 <!--    </div>-->
 <!--    -->
+    <p th:text="${timecomponent.time}"/>
     <div class="row" style="padding:10px">
 <!--        !!!! tu podajemy nazwe url /newknight z controllera , nie natomiast nazwe pliku formularza !!!-->
         <a href="/newknight">Utwórz rycerza</a>
     </div>
 
-    <table class="table">
+        <table class="table">
         <thead>
-        <tr><td>Imie</td><td>wiek</td></tr>
+        <tr>
+            <td>Id</td>
+            <td>Imie</td>
+            <td>wiek</td>
+        </tr>
         <tbody th:each="knight : ${allKnights}">
         <tr>
+            <td th:text="${knight.id}" ></td>
             <td th:text="${knight.name}" ></td>
             <td th:text="${knight.age}" ></td>
             <td><a th:href="${'/knight?id='+knight.id}">Podgląd</a> </td>
+            <td><a th:href="${'/knight/delete/'+knight.id}">Usuń</a> </td>
         </tr>
         </tbody>
         </thead>

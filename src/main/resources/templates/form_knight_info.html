@@ -16,9 +16,9 @@
 
     <table class="table">
         <thead>
-        <tr><td>Imie</td><td>nazwa</td><td>wiek</td><td>level</td></tr>
-<!--        <tbody>-->
-        <tbody th:each="knight : ${allKnights}">-->
+        <tr><td>id</td><td>nazwa</td><td>wiek</td><td>level</td></tr>
+        <tbody>
+        <tbody>
         <tr>
             <td th:text="${knight.id}" ></td>
             <td th:text="${knight.name}" ></td>
@@ -26,6 +26,8 @@
             <td th:text="${knight.level}" ></td>
             <td> </td>
         </tr>
+
+
         </tbody>
         </thead>
     </table>
@@ -34,3 +36,7 @@
 
 </body>
 </html>
+
+<!--<p th:text="${knight.name}"></p>-->
+<!--<p th:text="${knight.age}"></p>-->
+<!--<p th:text="${knight.level}"></p>-->
