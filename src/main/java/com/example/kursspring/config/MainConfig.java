@@ -1,10 +1,9 @@
-package com.example.config;
+package com.example.kursspring.config;
 
 import com.example.kursspring.domain.repository.DBKnightRepository;
 import com.example.kursspring.domain.repository.InMemoryKnightRepository;
 import com.example.kursspring.domain.repository.KnightRepository;
 import org.springframework.context.annotation.*;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @Configuration
 //@ImportResource("classpath:config/castle-config.xml")

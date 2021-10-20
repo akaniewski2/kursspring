@@ -1,6 +1,7 @@
 package com.example.kursspring.domain.repository;
 
 import com.example.kursspring.domain.Quest;
+import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @Repository
+//@Scope("prototype")
 public class QuestRepository {
 
     Random rand= new Random();

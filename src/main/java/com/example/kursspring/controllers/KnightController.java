@@ -1,7 +1,9 @@
 package com.example.kursspring.controllers;
 
+import com.example.kursspring.components.TimeComponent;
 import com.example.kursspring.domain.Knight;
 
+import com.example.kursspring.domain.PlayerInformation;
 import com.example.kursspring.services.KnightService;
 
 
@@ -20,7 +22,13 @@ import java.util.List;
 public class KnightController {
 
     @Autowired
+    TimeComponent timeComponent;
+
+    @Autowired
     KnightService knightService;
+
+    @Autowired
+    PlayerInformation playerInformation;
 
 
     @RequestMapping("/knights")
@@ -29,6 +37,8 @@ public class KnightController {
         List<Knight> allKnights = knightService.getAllKnights();
         System.out.println("# allKnights" + allKnights);
         model.addAttribute("allKnights", allKnights);
+        model.addAttribute("timeComponent", timeComponent);
+        model.addAttribute("playerInformation",playerInformation);
         model.addAttribute("hello", "Witaj świecie");
 
         return "form_knights";
@@ -38,6 +48,8 @@ public class KnightController {
     @RequestMapping("/newknight")
     public String createKnight(Model model) {
         model.addAttribute("newKnightFromForm", new Knight());
+        model.addAttribute("timeComponent", timeComponent);
+        model.addAttribute("playerInformation",playerInformation);
         return "form_newknight";
 
     }
@@ -60,6 +72,8 @@ public class KnightController {
     public String getKnight(@RequestParam("id") Integer id, Model model) {
         Knight knight = knightService.getKnight(id);
         model.addAttribute("knight", knight);
+        model.addAttribute("timeComponent", timeComponent);
+        model.addAttribute("playerInformation",playerInformation);
         return "form_knight_info";
     }
 

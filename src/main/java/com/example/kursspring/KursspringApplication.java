@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 
-@ComponentScan({"com.example.kursspring","com.example.component","com.example.config","com.example.repository"})
+@ComponentScan({"com.example.kursspring","com.example.kursspring.components","com.example.kursspring.config","com.example.repository"})
 @SpringBootApplication
 // jesli uzywamy xmla
 //@ImportResource( "classpath:config/spring-config.xml")

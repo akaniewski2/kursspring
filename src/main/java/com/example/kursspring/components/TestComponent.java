@@ -1,6 +1,4 @@
-package com.example.component;
-
-import org.springframework.stereotype.Component;
+package com.example.kursspring.components;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
