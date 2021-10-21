@@ -4,7 +4,8 @@
 <head>
 
     <title>New Knight</title>
-    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html"/>
+<!--    ; charset="UTF-8"-->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
     <script th:src="@{/webjars/jquery/3.2.1/css/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
@@ -13,24 +14,32 @@
 
 <body>
 
-<br class="container" style="padding:50px">
-    Aktulny czas:  <span  th:text="${timeComponent.time}"/><br>
-    Posiadane złoto:  <span  th:text="${playerInformation.gold}"/>
+<div class="container" style="padding:50px">
 
+<div class="row">
+<!--    Aktualny czas:  <span  th:text="${timeComponent.time}"/><br>-->
+<!--    Posiadane zloto:  <span  th:text="${playerInformation.gold}"/>-->
+</div>
     <form class="form-horizontal" th:object="${newKnightFromForm}" th:action="@{/saveKnightFromForm}" method="post">
 
         <div class="form-group">
             <label class="control-label">imie</label>
-            <input type="text" class="form-control" th:field="*{name}"/>
+<!--            <input type="text" class="form-control" th:field="*{name}"/>-->
+            <input type="text" class="form-control" field="*{name}" name="name">
+<!--           <p th:text="${errorMap.msg}"/>-->
+            <!--            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>-->
         </div>
 
         <div class="form-group">
             <label class="control-label">wiek</label>
-            <input type="number" class="form-control" th:field="*{age}"/>
+            <input type="number" class="form-control" field="*{age}" name="age">
+
+<!--            <input type="number" class="form-control" th:field="*{age}"/>-->
+<!--            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"/>-->
         </div>
 
         <div class="row">
-            <button type="submit" class="btn btn-default">Utwórz rycerza</button>
+            <button type="submit" class="btn btn-default">Utworz rycerza</button>
         </div>
 
 

@@ -4,7 +4,9 @@
 <head>
 
     <title>Knight list</title>
-    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html"
+
+    />
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
     <script th:src="@{/webjars/jquery/3.2.1/css/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
@@ -13,7 +15,7 @@
 <body>
 
 <div class="container">
- Aktulny czas:  <span  th:text="${timeComponent.time}"/><br>
+  Aktualny czas:  <span  th:text="${timeComponent.time}"/><br>
  Posiadane złoto:  <span  th:text="${playerInformation.gold}"/>
 
 
@@ -29,7 +31,7 @@
 
     <div class="row" style="padding:10px">
 <!--        !!!! tu podajemy nazwe url /newknight z controllera , nie natomiast nazwe pliku formularza !!!-->
-        <a href="/newknight">Utwórz rycerza</a>
+        <a href="/newknight">Utworz rycerza</a>
     </div>
 
         <table class="table">
@@ -44,8 +46,8 @@
             <td th:text="${knight.id}" ></td>
             <td th:text="${knight.name}" ></td>
             <td th:text="${knight.age}" ></td>
-            <td><a th:href="${'/knight?id='+knight.id}">Podgląd</a> </td>
-            <td><a th:href="${'/knight/delete/'+knight.id}">Usuń</a> </td>
+            <td><a th:href="${'/knight?id='+knight.id}">Podglad</a> </td>
+            <td><a th:href="${'/knight/delete/'+knight.id}">Usun</a> </td>
         </tr>
         </tbody>
         </thead>

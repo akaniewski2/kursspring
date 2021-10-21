@@ -1,6 +1,7 @@
 package com.example.kursspring.controllers;
 
 import com.example.kursspring.components.TimeComponent;
+import com.example.kursspring.domain.ErrMap;
 import com.example.kursspring.domain.Knight;
 
 import com.example.kursspring.domain.PlayerInformation;
@@ -8,15 +9,18 @@ import com.example.kursspring.services.KnightService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class KnightController {
@@ -29,6 +33,12 @@ public class KnightController {
 
     @Autowired
     PlayerInformation playerInformation;
+
+    @Autowired
+    private MessageSource messageSource;
+
+//    @Autowired
+//    ErrMap errorMap;
 
 
     @RequestMapping("/knights")
@@ -48,23 +58,45 @@ public class KnightController {
     @RequestMapping("/newknight")
     public String createKnight(Model model) {
         model.addAttribute("newKnightFromForm", new Knight());
-        model.addAttribute("timeComponent", timeComponent);
-        model.addAttribute("playerInformation",playerInformation);
-        return "form_newknight";
+//        model.addAttribute("timeComponent", timeComponent);
+//        model.addAttribute("playerInformation",playerInformation);
+
+
+      return "form_newknight";
+//        return "redirect:/newknight";
 
     }
 
     //2. tu nastepuje zapisanie rycerza z formularza
-    @RequestMapping(value = "/saveKnightFromForm", method = RequestMethod.POST)
     //metoda post przyjmuje nie model a obiekt ,clase
     //tu mozna wstawic walidacje
-    public String saveKnights(Knight knight) {
-        knightService.saveKnight(knight);
-        //przy redirect wskazujemy rwniez na url z RequestMapping a nie nazwe formularza !
-        return "redirect:/knights";
+    @RequestMapping(value = "/saveKnightFromForm", method = RequestMethod.POST)
+    //public String saveKnights(Knight knight)
+    public String saveKnights(
+            @Valid   Knight knight, BindingResult bindingResult,Model model) { /*dotyczy annotacji w klasie nigth */ //nie dziala @ModelAttribute("knighterr")
+        if (bindingResult.hasErrors()) {
+            System.out.println("# EROR");
+            bindingResult.getAllErrors().forEach(error -> {System.out.println(error.getObjectName() + " " + error.getDefaultMessage());}  );
+           // bindingResult.getAllErrors().forEach(error -> {System.out.println(error.getObjectName() + " " + error.getDefaultMessage());
 
-        // tak nie dziala
-        // return "form_knights";
+
+            Map<String, String> /*errorMap*/ errMap = bindingResult.getFieldErrors().stream()
+                    .collect(Collectors
+                            .toMap(FieldError::getField,
+                                    e -> messageSource.getMessage(e, LocaleContextHolder.getLocale()),
+                                    (a,b)->a + "<br/>" + b));
+            model.addAttribute("errorMap", errMap);
+
+
+            return "form_newknight";
+        } else {
+            knightService.saveKnight(knight);
+            //przy redirect wskazujemy rwniez na url z RequestMapping a nie nazwe formularza !
+            return "redirect:/knights";
+            // tak nie dziala
+            // return "form_knights";
+        }
+
 
     }
 

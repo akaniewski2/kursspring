@@ -1,16 +1,33 @@
 package com.example.kursspring.domain;
 
-import org.springframework.beans.factory.annotation.Value;
 
+
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.lang.NonNull;
+
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 public class Knight {
 
     private int id;
    // @Value("dasdsad")
+
+
+    @NotNull
+    @Size(min=5,max=40)
+    @NotBlank
     private String name;
+
+    @NotNull
+//  @Range(min=18,max=60)//nie dziala
+    @Min(value = 18, message = "Jestes niepelnoletni! ")
+    @Max(40)
     private int age;
+
     private int level;
+
 
     private Quest quest;
 

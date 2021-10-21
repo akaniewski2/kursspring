@@ -1,5 +1,8 @@
 package com.example.kursspring.components;
 
+import com.example.kursspring.domain.Knight;
+import org.springframework.boot.autoconfigure.security.saml2.Saml2RelyingPartyProperties;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
