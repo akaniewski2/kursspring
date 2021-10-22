@@ -80,12 +80,12 @@ public class KnightController {
            // bindingResult.getAllErrors().forEach(error -> {System.out.println(error.getObjectName() + " " + error.getDefaultMessage());
 
 
-            Map<String, String> /*errorMap*/ errMap = bindingResult.getFieldErrors().stream()
-                    .collect(Collectors
-                            .toMap(FieldError::getField,
-                                    e -> messageSource.getMessage(e, LocaleContextHolder.getLocale()),
-                                    (a,b)->a + "<br/>" + b));
-            model.addAttribute("errorMap", errMap);
+//            Map<String, String> /*errorMap*/ errMap = bindingResult.getFieldErrors().stream()
+//                    .collect(Collectors
+//                            .toMap(FieldError::getField,
+//                                    e -> messageSource.getMessage(e, LocaleContextHolder.getLocale()),
+//                                    (a,b)->a + "<br/>" + b));
+//            model.addAttribute("errMap", errMap);
 
 
             return "form_newknight";

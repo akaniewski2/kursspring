@@ -24,15 +24,24 @@
 
         <div class="form-group">
             <label class="control-label">imie</label>
-<!--            <input type="text" class="form-control" th:field="*{name}"/>-->
-            <input type="text" class="form-control" field="*{name}" name="name">
-<!--           <p th:text="${errorMap.msg}"/>-->
-            <!--            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>-->
+<!--            <input type="text" class="form-control" th:field="*{name}" name="name" id="name"/>-->
+            <input type="text" class="form-control" field="*{name}" name="name" id="name" />
+<!--            <p if="${#fields.hasErrors('name')}" errorclass="error" errors="*{name}" />-->
+<!--        <p th:text="${errMap.msg}"/>-->
+<!--            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>-->
+
+<!--            <div>-->
+<!--&lt;!&ndash;                <label for="name">Name</label> <input type="text" th:field="*{name}" id="name" placeholder="Name">&ndash;&gt;-->
+<!--                <ul>-->
+<!--                    <li each="err : ${#fields.errors('name')}" text="${err}" class="error" />-->
+<!--                </ul>-->
+<!--            </div>-->
+
         </div>
 
         <div class="form-group">
             <label class="control-label">wiek</label>
-            <input type="number" class="form-control" field="*{age}" name="age">
+            <input type="number" class="form-control" field="*{age}" name="age"/>
 
 <!--            <input type="number" class="form-control" th:field="*{age}"/>-->
 <!--            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"/>-->

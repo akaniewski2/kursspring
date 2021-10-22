@@ -23,7 +23,7 @@ public class Knight {
     @NotNull
 //  @Range(min=18,max=60)//nie dziala
     @Min(value = 18, message = "Jestes niepelnoletni! ")
-    @Max(40)
+    @Max(60)
     private int age;
 
     private int level;
