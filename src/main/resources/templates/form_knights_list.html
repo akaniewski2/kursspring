@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:if="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -31,8 +31,14 @@
 
     <div class="row" style="padding:10px">
 <!--        !!!! tu podajemy nazwe url /newknight z controllera , nie natomiast nazwe pliku formularza !!!-->
-        <a href="/newknight">Utworz rycerza</a>
+        <a href="/newknight">Utworz rycerza</a><br>
+        <a th:href="${'/checkQuests'}">Aktualizuj zadania</a><br>
+<!--        albo-->
+        <a href="/checkQuests">Aktualizuj zadania 2</a><br>
+
     </div>
+
+
 
         <table class="table">
         <thead>
@@ -40,12 +46,19 @@
             <td>Id</td>
             <td>Imie</td>
             <td>wiek</td>
+            <td>level</td>
+            <td>quest</td>
         </tr>
         <tbody th:each="knight : ${allKnights}">
         <tr>
             <td th:text="${knight.id}" ></td>
             <td th:text="${knight.name}" ></td>
             <td th:text="${knight.age}" ></td>
+            <td th:text="${knight.level}" ></td>
+<!--            <td  th:if="${knight.quest==null}" th:text="'Brak aktualnego zadania'"></td>-->
+            <td <span th:if="${knight.quest==null}" ></span> Brak aktualnego zadania <a th:href="${'/assignQuest?knightId='+knight.id}">Przypisz zadanie</a>  </td>
+            <td  th:if="${knight.quest!=null}" th:text="${knight.quest.description}"></td>
+
             <td><a th:href="${'/knight?id='+knight.id}">Podglad</a> </td>
             <td><a th:href="${'/knight/delete/'+knight.id}">Usun</a> </td>
         </tr>

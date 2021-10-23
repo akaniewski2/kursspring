@@ -51,10 +51,10 @@ public class KnightController {
         model.addAttribute("playerInformation",playerInformation);
         model.addAttribute("hello", "Witaj świecie");
 
-        return "form_knights";
+        return "form_knights_list";
     }
 
-    //1. tu nastepuje przekazanie danych z formularza form_newknight do modelu i utworzenie pustego obiektu ryceeza , który zostanie zapisamy w pkt 2 po wykonaniu metody post na url /knightFromForm"
+    //1. tu nastepuje przekazanie danych z formularza form_knight_new do modelu i utworzenie pustego obiektu ryceeza , który zostanie zapisamy w pkt 2 po wykonaniu metody post na url /knightFromForm"
     @RequestMapping("/newknight")
     public String createKnight(Model model) {
         model.addAttribute("newKnightFromForm", new Knight());
@@ -62,7 +62,7 @@ public class KnightController {
 //        model.addAttribute("playerInformation",playerInformation);
 
 
-      return "form_newknight";
+      return "form_knight_new";
 //        return "redirect:/newknight";
 
     }
@@ -88,7 +88,7 @@ public class KnightController {
 //            model.addAttribute("errMap", errMap);
 
 
-            return "form_newknight";
+            return "form_knight_new";
         } else {
             knightService.saveKnight(knight);
             //przy redirect wskazujemy rwniez na url z RequestMapping a nie nazwe formularza !

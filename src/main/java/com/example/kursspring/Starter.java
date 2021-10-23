@@ -48,6 +48,7 @@ public class Starter implements CommandLineRunner {
        // System.out.println(questRepository);
 
 
+        questService.assignRandomQuest("Percival");
         System.out.println("Koniec CommandLineRunner");
 
 
